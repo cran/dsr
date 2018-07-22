@@ -1,0 +1,9 @@
+import(dplyr)
+import(rlang)
+import(utils)
+importFrom(stats, qnorm)
+importFrom(stats, qgamma)
+export(dsr)
+export(dsrr)
+
+

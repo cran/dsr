@@ -1,0 +1,13 @@
+e0241a9af359a8a74950eb5a87deb6dd *DESCRIPTION
+ac77ec442d124eb1df1af96c87d681f5 *NAMESPACE
+d8ecddf908ddc2f2f3a15d61b1afc2f5 *R/dsr.R
+ada9d8bf2b48179f5368865796e66f8b *R/dsrr.R
+caab40b1b3b5b37116d569feb030063f *R/globals.R
+3ebfb2339d0eef68e7fd693d74a1d4e3 *README.md
+8519a58d3c041c615b6eb1c6eebe0a8f *build/vignette.rds
+dcf1cd2c8b3ffdd2a99087860b9111a4 *inst/doc/dsr.R
+8f045e46ec34382e56ec037689fb2fb8 *inst/doc/dsr.Rmd
+a3adbf8e1519c4dae9c2731594770c33 *inst/doc/dsr.html
+113d58cdf296d7af9f14b87ffb77f4cd *man/dsr.Rd
+336118946c99d470538aa50916473529 *man/dsrr.Rd
+8f045e46ec34382e56ec037689fb2fb8 *vignettes/dsr.Rmd
