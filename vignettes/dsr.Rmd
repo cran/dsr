@@ -112,9 +112,11 @@ my_results <- dsrr(data=df_all,
 knitr::kable(my_results)
 ```
 
-A rate difference comparing the directly standardized mortality rate of Alaska to Florida is requested. A 95% normal confidence interval is computed.
+ 
 
 ## Directly Standardized Rate Difference with dsrr()
+
+A rate difference comparing the directly standardized mortality rate of Alaska to Florida is requested. A 95% normal confidence interval is computed.
 ```{r}
 my_results2 <- dsrr(data=df_all,
                    event=death,
@@ -130,3 +132,4 @@ my_results2 <- dsrr(data=df_all,
 
 knitr::kable(my_results2)
 ```
+

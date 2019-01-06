@@ -1,9 +1,12 @@
 import(dplyr)
 import(rlang)
 import(utils)
+import(frailtypack)
 importFrom(stats, qnorm)
 importFrom(stats, qgamma)
 export(dsr)
 export(dsrr)
+export(dsrrec)
+
 
 

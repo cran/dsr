@@ -95,6 +95,13 @@ dsrr <- function(data, event, fu, subgroup, ..., refdata, estimate, refgroup, mp
       select(!!subgroup, reference, s_rate, ratio, lower, upper)
 
     #Clean up and output
+
+
+    out$s_rate  <- round(out$s_rate, digits=decimals)
+    out$lower <- round(out$lower, digits=decimals)
+    out$upper <- round(out$upper, digits=decimals)
+    out$ratio <- round(out$ratio, digits=decimals)
+
     colnames(out) <-  c('Comparator', 'Reference',
                         paste('Std Rate (per ',mp,')',sep=''),
                         paste('Rate Ratio (RR)',sep=''),
@@ -102,9 +109,8 @@ dsrr <- function(data, event, fu, subgroup, ..., refdata, estimate, refgroup, mp
                         paste(sig*100,'% UCL (RR)',sep='')
     )
 
-    out <- as.data.frame(out %>%
-                           mutate_if(is.numeric, round, digits=decimals)
-    )
+    out <- as.data.frame(out)
+
 
   } else if (estimate=="difference") {
 
@@ -120,6 +126,12 @@ dsrr <- function(data, event, fu, subgroup, ..., refdata, estimate, refgroup, mp
       select(!!subgroup, reference, s_rate, difference, lower, upper)
 
     #Clean up and output
+
+    out$s_rate  <- round(out$s_rate, digits=decimals)
+    out$lower <- round(out$lower, digits=decimals)
+    out$upper <- round(out$upper, digits=decimals)
+    out$difference <- round(out$difference, digits=decimals)
+
     colnames(out) <-  c('Comparator', 'Reference',
                         paste('Std Rate (per ',mp,')',sep=''),
                         paste('Rate Difference (RD)',sep=''),
@@ -127,9 +139,11 @@ dsrr <- function(data, event, fu, subgroup, ..., refdata, estimate, refgroup, mp
                         paste(sig*100,'% UCL (RD)',sep='')
     )
 
-    out <- as.data.frame(out %>%
-                           mutate_if(is.numeric, round, digits=decimals)
-    )
+    out <- as.data.frame(out)
+
+
+
+
   }
 
 }

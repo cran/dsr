@@ -118,16 +118,23 @@ dsr <- function(data, event, fu, subgroup, ..., refdata, mp, method="normal", si
 
 
   #Clean up and output
-  colnames(tmp1) <-  c('Subgroup', 'Numerator','Denominator',
-                      paste('Crude Rate (per ',mp,')',sep=''),
-                      paste(sig*100,'% LCL (Crude)',sep=''),
-                      paste(sig*100,'% UCL (Crude)',sep=''),
-                      paste('Std Rate (per ',mp,')',sep=''),
-                      paste(sig*100,'% LCL (Std)',sep=''),
-                      paste(sig*100,'% UCL (Std)',sep=''))
 
-  tmp1 <- as.data.frame(tmp1 %>%
-                         mutate_if(is.numeric, round, digits=decimals)
-  )
+  tmp1$c_rate  <- round(tmp1$c_rate,  digits=decimals)
+  tmp1$c_lower <- round(tmp1$c_lower, digits=decimals)
+  tmp1$c_upper <- round(tmp1$c_upper, digits=decimals)
+  tmp1$s_rate  <- round(tmp1$s_rate, digits=decimals)
+  tmp1$s_lower <- round(tmp1$s_lower, digits=decimals)
+  tmp1$s_upper <- round(tmp1$s_upper, digits=decimals)
+
+  colnames(tmp1) <-  c('Subgroup', 'Numerator','Denominator',
+                       paste('Crude Rate (per ',mp,')',sep=''),
+                       paste(sig*100,'% LCL (Crude)',sep=''),
+                       paste(sig*100,'% UCL (Crude)',sep=''),
+                       paste('Std Rate (per ',mp,')',sep=''),
+                       paste(sig*100,'% LCL (Std)',sep=''),
+                       paste(sig*100,'% UCL (Std)',sep=''))
+
+
+  tmp1 <- as.data.frame(tmp1)
 
 }
