@@ -2,7 +2,9 @@
 title: "Directly Standardized Rates"
 author: "Matthew Kumar"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: 
+  rmarkdown::html_vignette:
+    toc: true
 vignette: >
   %\VignetteIndexEntry{Directly Standardized Rates}
   %\VignetteEngine{knitr::rmarkdown}
@@ -24,14 +26,14 @@ The `dsrr()` function can be used to *compare* directly standardized event rates
 Standard errors for directly standardized rates are calculated using Chiang's (1961) method.
 
 ## Pre-analysis
-The `dsr()` and `dsrr()` functions expects **pre-aggregated** event counts and unit-times by
+The `dsr()` and `dsrr()` functions expect *aggregated* event counts and unit-times by
 
 - standardization variables (e.g. age, sex, etc).
 - subgroup variables, if any.
 
-If you are working with **individual level data**, you will need to aggregate it beforehand. The R package `dplyr` can do this quite easily.
+If you are working with individual level data, you will need to aggregate it beforehand. The R package `dplyr` can do this quite easily.
  
-**Note:** For the standardized population / ref data, the unit-time variable name must named *pop*.  
+**Note:** For the standard or reference population, the data must be *aggregated* by the standardization variables and the unit-time variable name must labeled *pop*. See example below.  
 
 
 ## Example Data
@@ -133,3 +135,10 @@ my_results2 <- dsrr(data=df_all,
 knitr::kable(my_results2)
 ```
 
+## References
+- Chiang C. Standard error of the age-adjusted death rate. US Department of Health, Education and Welfare: Vital Statistics Special Reports 1961;47:271-285.
+
+- Elandt-Johnson, R. C., and Johnson, N. L. (1980). Survival Models and Data Analysis. New York: John Wiley & Sons.
+
+- Fay, M.P., & Feuer, E.J. (1997). Confidence intervals for directly standardized rates: a method based on the gamma distribution. Statistics in Medicine,16, 791-801.
+ 

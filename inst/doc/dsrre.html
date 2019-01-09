@@ -12,9 +12,9 @@
 
 <meta name="author" content="Matthew Kumar" />
 
-<meta name="date" content="2019-01-05" />
+<meta name="date" content="2019-01-09" />
 
-<title>DSR for Recurrent Outcomes</title>
+<title>Directly Standardized Rates for Recurrent Outcomes</title>
 
 
 
@@ -68,11 +68,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<h1 class="title toc-ignore">DSR for Recurrent Outcomes</h1>
+<h1 class="title toc-ignore">Directly Standardized Rates for Recurrent Outcomes</h1>
 <h4 class="author"><em>Matthew Kumar</em></h4>
-<h4 class="date"><em>2019-01-05</em></h4>
+<h4 class="date"><em>2019-01-09</em></h4>
 
 
+<div id="TOC">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#pre-analysis">Pre-Analysis</a></li>
+<li><a href="#example-data">Example Data</a></li>
+<li><a href="#directly-standardized-rates-for-recurrent-outcomes-with-dsrrec">Directly Standardized Rates for Recurrent Outcomes with dsrrec()</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
 
 <div id="overview" class="section level2">
 <h2>Overview</h2>
@@ -89,8 +98,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <p><strong>Note:</strong> For the standard or reference population, the data must be <em>aggregated</em> by the standardization variables and the unit-time variable name must labeled <em>pop</em>. See example below.</p>
 </div>
-<div id="recurrent-outcome-example" class="section level2">
-<h2>Recurrent Outcome Example</h2>
+<div id="example-data" class="section level2">
+<h2>Example Data</h2>
 <p>The <code>readmission</code> dataset from <code>frailtypack</code> contains rehospitalization times (in days) following surgery in patients diagnosed with colorectal cancer. We will use this data to examine directly (sex) standardized rates for rehospitalizations by Dukes’ tumoral stage, a subgroup variable.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#load necessary packages</span>
 <span class="kw">require</span>(frailtypack)
@@ -192,6 +201,9 @@ knitr<span class="op">::</span><span class="kw">kable</span>(tref, <span class="
 </tr>
 </tbody>
 </table>
+</div>
+<div id="directly-standardized-rates-for-recurrent-outcomes-with-dsrrec" class="section level2">
+<h2>Directly Standardized Rates for Recurrent Outcomes with dsrrec()</h2>
 <p>Finally, lets calculate directly (sex) standardized rates for rehospitalizations by Dukes’ tumoral stage.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">require</span>(dsr)
 
@@ -204,7 +216,6 @@ my_analysis &lt;-<span class="st"> </span><span class="kw">dsrrec</span>(<span c
                        <span class="dt">sig=</span><span class="fl">0.95</span>,
                        <span class="dt">mp=</span><span class="dv">1000</span>,
                        <span class="dt">decimals=</span><span class="dv">3</span>)</code></pre></div>
-<p>By default, confidence intervals for recurrent (NB) and non-current (Gamma) outcomes are calculated.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">kable</span>(my_analysis, <span class="dt">caption=</span><span class="st">'Analysis Results'</span>) </code></pre></div>
 <table>
 <caption>Analysis Results</caption>
@@ -257,6 +268,14 @@ my_analysis &lt;-<span class="st"> </span><span class="kw">dsrrec</span>(<span c
 </tr>
 </tbody>
 </table>
+<p>By default, confidence intervals for recurrent (NB) and non-current (Gamma) outcomes are calculated.</p>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<ul>
+<li><p>Stukel, T. A., Glynn, R. J., Fisher, E. S., Sharp, S. M., Lu-Yao, G and Wennberg, J. E. (1994). Standardized rates of recurrent outcomes. Statistics in Medicine, 13, 1781-1791.</p></li>
+<li><p>Fay, M.P., &amp; Feuer, E.J. (1997). Confidence intervals for directly standardized rates: a method based on the gamma distribution. Statistics in Medicine, 16, 791-801.</p></li>
+</ul>
 </div>
 
 

@@ -1,10 +1,12 @@
 ---
-title: "DSR for Recurrent Outcomes"
+title: "Directly Standardized Rates for Recurrent Outcomes"
 author: "Matthew Kumar"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: 
+  rmarkdown::html_vignette:
+    toc: true
 vignette: >
-  %\VignetteIndexEntry{DSR for Recurrent Outcomes}
+  %\VignetteIndexEntry{Directly Standardized Rates for Recurrent Outcomes}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -32,7 +34,7 @@ The `dsrrec()` function expects **person-level** event counts and unit-times. On
  
 **Note:** For the standard or reference population, the data must be *aggregated* by the standardization variables and the unit-time variable name must labeled *pop*. See example below.
 
-## Recurrent Outcome Example
+## Example Data
 The `readmission` dataset from `frailtypack` contains rehospitalization times (in days) following surgery in patients diagnosed with colorectal cancer. We will use this data to examine directly (sex) standardized rates for rehospitalizations by Dukes' tumoral stage, a subgroup variable.
 
 ```{r message=FALSE, warning=FALSE}
@@ -72,6 +74,8 @@ knitr::kable(tref, caption='Reference Dataset')
 
 ```
 
+## Directly Standardized Rates for Recurrent Outcomes with dsrrec()
+
 Finally, lets calculate directly (sex) standardized rates for rehospitalizations by Dukes' tumoral stage. 
 
 ```{r message=FALSE, warning=FALSE}
@@ -88,8 +92,16 @@ my_analysis <- dsrrec(data=treadm,
                        decimals=3)
 
 ```
-By default, confidence intervals for recurrent (NB) and non-current (Gamma) outcomes are calculated.
-
+ 
 ```{r message=FALSE, warning=FALSE}
 knitr::kable(my_analysis, caption='Analysis Results') 
+
 ```
+
+By default, confidence intervals for recurrent (NB) and non-current (Gamma) outcomes are calculated.
+
+## References
+
+- Stukel, T. A., Glynn, R. J., Fisher, E. S., Sharp, S. M., Lu-Yao, G and Wennberg, J. E. (1994). Standardized rates of recurrent outcomes. Statistics in Medicine, 13, 1781-1791.
+
+- Fay, M.P., & Feuer, E.J. (1997). Confidence intervals for directly standardized rates: a method based on the gamma distribution. Statistics in Medicine, 16, 791-801.

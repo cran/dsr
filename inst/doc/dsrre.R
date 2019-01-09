@@ -51,3 +51,4 @@ my_analysis <- dsrrec(data=treadm,
 ## ----message=FALSE, warning=FALSE----------------------------------------
 knitr::kable(my_analysis, caption='Analysis Results') 
 
+

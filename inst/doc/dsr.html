@@ -12,7 +12,7 @@
 
 <meta name="author" content="Matthew Kumar" />
 
-<meta name="date" content="2019-01-05" />
+<meta name="date" content="2019-01-09" />
 
 <title>Directly Standardized Rates</title>
 
@@ -70,9 +70,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Directly Standardized Rates</h1>
 <h4 class="author"><em>Matthew Kumar</em></h4>
-<h4 class="date"><em>2019-01-05</em></h4>
+<h4 class="date"><em>2019-01-09</em></h4>
 
 
+<div id="TOC">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#pre-analysis">Pre-analysis</a></li>
+<li><a href="#example-data">Example Data</a></li>
+<li><a href="#directly-standardized-rates-with-dsr">Directly Standardized Rates with dsr()</a></li>
+<li><a href="#directly-standardized-rate-ratios-with-dsrr">Directly Standardized Rate Ratios with dsrr()</a></li>
+<li><a href="#directly-standardized-rate-difference-with-dsrr">Directly Standardized Rate Difference with dsrr()</a></li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
 
 <div id="overview" class="section level2">
 <h2>Overview</h2>
@@ -82,13 +93,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="pre-analysis" class="section level2">
 <h2>Pre-analysis</h2>
-<p>The <code>dsr()</code> and <code>dsrr()</code> functions expects <strong>pre-aggregated</strong> event counts and unit-times by</p>
+<p>The <code>dsr()</code> and <code>dsrr()</code> functions expect <em>aggregated</em> event counts and unit-times by</p>
 <ul>
 <li>standardization variables (e.g. age, sex, etc).</li>
 <li>subgroup variables, if any.</li>
 </ul>
-<p>If you are working with <strong>individual level data</strong>, you will need to aggregate it beforehand. The R package <code>dplyr</code> can do this quite easily.</p>
-<p><strong>Note:</strong> For the standardized population / ref data, the unit-time variable name must named <em>pop</em>.</p>
+<p>If you are working with individual level data, you will need to aggregate it beforehand. The R package <code>dplyr</code> can do this quite easily.</p>
+<p><strong>Note:</strong> For the standard or reference population, the data must be <em>aggregated</em> by the standardization variables and the unit-time variable name must labeled <em>pop</em>. See example below.</p>
 </div>
 <div id="example-data" class="section level2">
 <h2>Example Data</h2>
@@ -492,6 +503,14 @@ knitr<span class="op">::</span><span class="kw">kable</span>(my_results2)</code>
 </tr>
 </tbody>
 </table>
+</div>
+<div id="references" class="section level2">
+<h2>References</h2>
+<ul>
+<li><p>Chiang C. Standard error of the age-adjusted death rate. US Department of Health, Education and Welfare: Vital Statistics Special Reports 1961;47:271-285.</p></li>
+<li><p>Elandt-Johnson, R. C., and Johnson, N. L. (1980). Survival Models and Data Analysis. New York: John Wiley &amp; Sons.</p></li>
+<li><p>Fay, M.P., &amp; Feuer, E.J. (1997). Confidence intervals for directly standardized rates: a method based on the gamma distribution. Statistics in Medicine,16, 791-801.</p></li>
+</ul>
 </div>
 
 
