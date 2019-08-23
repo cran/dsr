@@ -116,7 +116,7 @@ dsrr <- function(data, event, fu, subgroup, ..., refdata, estimate, refgroup, mp
 
     out = all_data_st %>%
       mutate(ratio=(st_rate-ref$st_rate),
-             se=sqrt(st_var) + (ref$st_var),
+             se=sqrt((st_var) + (ref$st_var)),
              lower = mp*(ratio + qnorm((1-sig)/2) * se),
              upper = mp*(ratio - qnorm((1-sig)/2) * se),
              reference = ref$reference,
